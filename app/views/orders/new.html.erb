@@ -1,0 +1,12 @@
+<h1>Orders</h1>
+
+<%= form_with(model: @order) do |form| %>
+  <%= form.label :quantity %>
+  <%= form.number_field :quantity %>
+  <br>
+  <br>
+  <%= form.hidden_field :food_store_id, value: @food_store.id %>
+  <%= form.hidden_field :food_item_id, value: item.id %>
+  <%= form.hidden_field :user_id, value: @user.id %>
+  <%= form.submit %>
+<% end %>

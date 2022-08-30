@@ -1,0 +1,10 @@
+<h1>All FoodStores</h1>
+<%= link_to "back", root_path %>
+<%= link_to "Add FoodStore", new_food_store_path %>
+<% if @food_stores %>
+  <% @food_stores.each do |store| %>
+    <h2>food_store_name</h2>
+    <%= link_to store.name, food_store_food_items_path(store) %>
+    <br>
+  <% end %>
+<% end %>

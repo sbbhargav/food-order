@@ -1,0 +1,9 @@
+<h1>Add Food Store</h1>
+<%= link_to "back", food_stores_path %>
+<%= form_with(model: @food_store) do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <br>
+  <br>
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>All Fooditems of <%= @food_store.name%></h1>
+<%= link_to "Add FoodItem", new_food_store_food_item_path(@food_store) %>
+<br>
+<%= link_to "back", food_stores_path %>
+<% if @food_items %>
+  <% @food_items.each do |item| %>
+    <h2>food_item_name</h2>
+    <p><%= item.item_name %></p>
+    <h2>food_item_price</h2>
+    <p><%= item.item_price %></p>
+    <%= form_with(model: @order) do |form| %>
+      <%= form.label :quantity %>
+      <%= form.number_field :quantity %>
+      <br>
+      <br>
+      <%= form.hidden_field :food_store_id, value: @food_store.id %>
+      <%= form.hidden_field :food_item_id, value: item.id %>
+      <%= form.hidden_field :user_id, value: @user.id %>
+      <%= form.submit %>
+    <% end %>
+  <% end %>
+<% end %>

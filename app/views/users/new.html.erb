@@ -1,0 +1,43 @@
+<h1>New User</h1>
+<%= form_with model: @user do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+    <% @user.errors.full_messages_for(:name).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :email %><br>
+    <%= form.text_field :email %><br>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password %><br>
+    <%= form.text_field :password %><br>
+    <% @user.errors.full_messages_for(:password).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :password_confirmation %><br>
+    <%= form.text_field :password_confirmation %><br>
+    <% @user.errors.full_messages_for(:password_confirmation).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit :sign_up %>
+  </div>
+<% end %>
+
+<h2>Sign in with google</h2>
+<div>
+  <%= button_to "Google", "/auth/google_oauth2", method: :post %>
+</div>
